@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Çizgi Çarpımı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>✖️ Çizgi Çarpımı</h1>
+    <p>Aynı çarpmayı üç farklı yoldan yapalım: çizgileri sayarak, kafes çizerek ve sadece ikiye bölerek.</p>
+  </header>
+
+  <section class="girdi kart">
+    <input id="a" inputmode="numeric" value="123" aria-label="Birinci sayı">
+    <span class="carpi">×</span>
+    <input id="b" inputmode="numeric" value="21" aria-label="İkinci sayı">
+    <span class="esit">=</span>
+    <output id="sonuc">2583</output>
+    <button type="button" id="rastgele" class="ikinci">🎲 Rastgele</button>
+    <p class="not" id="girdiNot"></p>
+  </section>
+
+  <main>
+    <section class="kart cizgi-kart">
+      <div class="baslik-satir">
+        <h2>1. Çizgi yöntemi</h2>
+        <span class="etiket">en fazla 4 basamak</span>
+      </div>
+      <p class="aciklama">Birinci sayının her rakamı için o kadar paralel çizgi, ikincisi için ters yönde çizgi çiziyorum. Kesişim noktalarını sütun sütun sayıyorum. Sıfır rakamı kesik çizgi: yer tutuyor ama nokta vermiyor.</p>
+      <label class="adim">Adım <input id="adim" type="range" min="1" max="5" value="5"> <span id="adimYazi"></span></label>
+      <svg id="cizgiSvg" role="img" aria-label="Çizgi yöntemi çizimi"></svg>
+      <div id="cizgiElde" class="elde"></div>
+    </section>
+
+    <section class="kart">
+      <div class="baslik-satir">
+        <h2>2. Kafes yöntemi</h2>
+        <span class="etiket">en fazla 8 basamak</span>
+      </div>
+      <p class="aciklama">Her kutuda iki rakamın çarpımı var: onlar basamağı sol üstte, birler sağ altta. Aynı renkteki çaprazı topluyorum, sağdan sola elde taşıyorum.</p>
+      <svg id="kafesSvg" role="img" aria-label="Kafes yöntemi çizimi"></svg>
+      <div id="kafesElde" class="elde"></div>
+    </section>
+
+    <section class="kart">
+      <div class="baslik-satir">
+        <h2>3. Rus köylü yöntemi</h2>
+        <span class="etiket">en fazla 12 basamak</span>
+      </div>
+      <p class="aciklama">Soldakini ikiye bölüyorum (kalanı atıyorum), sağdakini ikiyle çarpıyorum. Soldaki sayı çift olan satırları siliyorum, kalan sağ tarafları topluyorum. Çarpım tablosunu bilmeden çarpabiliyorum!</p>
+      <table class="rus"><thead><tr><th>÷ 2</th><th>× 2</th><th></th></tr></thead><tbody id="rusGovde"></tbody></table>
+      <p id="rusToplam" class="toplam"></p>
+    </section>
+  </main>
+
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>

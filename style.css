@@ -1,0 +1,73 @@
+:root {
+  --ink: #0d0709; --ink2: #1a0d10; --border: #3a1a1e; --cream: #fff1d2;
+  --gold: #ffcf3a; --red: #c8322b; --teal: #5fd7ff; --green: #5fcf7a; --orange: #ff8a3d;
+  --soft: #c9b9a0;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ink); color: var(--cream); font-family: Rubik, system-ui, sans-serif; }
+header { padding: 22px 28px 6px; }
+h1 { margin: 0; font-size: 30px; font-weight: 800; color: var(--gold); }
+header p { margin: 6px 0 0; color: var(--soft); }
+.kart { background: var(--ink2); border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; min-width: 0; }
+.kart h2 { margin: 0; font-size: 18px; color: var(--gold); }
+.not { color: var(--soft); font-size: 13px; margin: 0; flex-basis: 100%; }
+.not.hata { color: #ff8f86; }
+
+button { font: inherit; font-weight: 600; border: 0; border-radius: 12px; padding: 9px 14px; cursor: pointer; }
+.ikinci { background: var(--ink); color: var(--cream); border: 1px solid var(--border); }
+button:hover { filter: brightness(1.15); }
+
+/* Girdi */
+.girdi { margin: 14px 28px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; border-color: var(--gold); }
+.girdi input { font: inherit; font-size: 32px; font-weight: 800; color: var(--cream); background: var(--ink); border: 1px solid var(--border); border-radius: 12px; padding: 6px 12px; width: 7.5ch; min-width: 0; text-align: center; }
+.girdi input:focus { outline: 2px solid var(--gold); }
+.girdi input.hatali { border-color: var(--red); }
+.carpi, .esit { font-size: 30px; font-weight: 800; color: var(--soft); }
+#sonuc { font-size: 36px; font-weight: 800; color: var(--gold); min-width: 0; overflow-wrap: anywhere; }
+#rastgele { margin-left: auto; }
+
+main { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 0.8fr); gap: 16px; padding: 16px 28px 28px; align-items: start; }
+.baslik-satir { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.etiket { font-size: 12px; color: var(--soft); border: 1px solid var(--border); border-radius: 8px; padding: 2px 8px; }
+.aciklama { color: var(--soft); font-size: 14px; line-height: 1.45; margin: 8px 0 12px; }
+
+.adim { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--soft); margin-bottom: 8px; }
+.adim input { flex: 1; min-width: 0; accent-color: var(--gold); }
+.adim span { color: var(--cream); font-weight: 600; min-width: 0; }
+
+svg { display: block; width: 100%; height: auto; background: var(--ink); border: 1px solid var(--border); border-radius: 12px; }
+svg text { font-family: Rubik, system-ui, sans-serif; }
+
+.elde { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: stretch; font-size: 14px; }
+.elde .kutu { flex: 1 1 70px; background: var(--ink); border: 1px solid var(--border); border-radius: 10px; padding: 6px 8px; text-align: center; min-width: 0; }
+.elde .kutu .ust { font-size: 12px; color: var(--soft); }
+.elde .kutu .say { font-size: 20px; font-weight: 800; }
+.elde .kutu .alt { font-size: 12px; color: var(--soft); }
+.elde .kutu .rakam { color: var(--gold); font-weight: 800; }
+.elde .satir { flex-basis: 100%; color: var(--soft); font-size: 13px; }
+.elde .satir b { color: var(--gold); font-size: 16px; }
+
+table.rus { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 15px; }
+.rus th { text-align: right; color: var(--soft); font-size: 12px; font-weight: 600; padding: 0 8px 6px; }
+.rus td { text-align: right; padding: 5px 8px; border-top: 1px solid var(--border); overflow-wrap: anywhere; }
+.rus tr.cift td { color: #6b5a50; text-decoration: line-through; }
+.rus tr.tek td:nth-child(2) { color: var(--green); font-weight: 700; }
+.rus td:nth-child(3) { color: var(--soft); font-size: 12px; text-decoration: none; width: 1%; white-space: nowrap; }
+.toplam { margin: 12px 0 0; font-size: 15px; overflow-wrap: anywhere; }
+.toplam b { color: var(--gold); }
+.kapali { color: var(--soft); font-size: 14px; padding: 18px; text-align: center; border: 1px dashed var(--border); border-radius: 12px; }
+
+@media (max-width: 1100px) {
+  main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .cizgi-kart { grid-column: 1 / -1; }
+}
+@media (max-width: 720px) {
+  header { padding: 18px 16px 4px; }
+  .girdi { margin: 12px 16px 0; }
+  main { grid-template-columns: minmax(0, 1fr); padding: 12px 16px 24px; }
+  .girdi input { font-size: 24px; width: 6.5ch; }
+  .carpi, .esit { font-size: 22px; }
+  #sonuc { font-size: 26px; }
+  #rastgele { margin-left: 0; }
+}
